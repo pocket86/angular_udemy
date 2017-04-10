@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
-  allowNewServer: Boolean = false;
-  serverCreationStatus = 'No server was created!';
-  userName = '';
+  showText = false;
+  log = [];
   constructor() {
     
   }
@@ -16,16 +15,9 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onCreateServer(){
-    this.serverCreationStatus = 'Server was created!';
-  }
-
-  onUpdateUserName(event){
-    this.userName = event.target.value;
-  }
-
-  clearUserName(){
-    this.userName = "";
+  toggleText(){
+    this.showText = !this.showText;
+    this.log.push(this.log.length + 1);
   }
 
 }
